@@ -19,6 +19,9 @@ use App\Http\Controllers\LoginController;
 */
 // admin
 Route::middleware('auth')->group(function(){
+    Route::get('/', function () {
+        return view('admin.app');
+    });
     Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');
     Route::get('/mastersiswa/(id_siswa)/hapus',[SiswaController::class,'hapus'])->name('mastersiwa.hapus');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -61,6 +64,3 @@ Route::middleware('auth')->group(function(){
 // Route::get('/masterkontak', function () {
 //     return view('admin.masterkontak');
 // });
-Route::get('/', function () {
-    return view('admin.app');
-});
