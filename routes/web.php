@@ -20,7 +20,7 @@ use App\Http\Controllers\LoginController;
 // admin
 Route::middleware('auth')->group(function(){
     Route::get('/', function () {
-        return view('admin.app');
+        return redirect('/login');
     });
     Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');
     Route::get('/mastersiswa/(id_siswa)/hapus',[SiswaController::class,'hapus'])->name('mastersiwa.hapus');
