@@ -17,11 +17,12 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// admin
-Route::middleware('auth')->group(function(){
-    Route::get('/', function () {
+
+Route::get('/', function () {
         return redirect('/login');
     });
+// admin
+Route::middleware('auth')->group(function(){
     Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');
     Route::get('/mastersiswa/(id_siswa)/hapus',[SiswaController::class,'hapus'])->name('mastersiwa.hapus');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
